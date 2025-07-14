@@ -5,7 +5,7 @@ const chalk = require('chalk');
 
 async function mainMenu() {
   console.clear();
-  console.log(chalk.blue.bold('\n=== CONVERSOR DE UNIDADES UNIVERSAL ===\n'));
+  console.log(chalk.red.bold('\n=== CONVERSOR DE UNIDADES UNIVERSAL ===\n'));
 
   const { opcion } = await inquirer.prompt([
     {
@@ -32,7 +32,7 @@ async function mainMenu() {
       showRecord();
       break;
     case '4. 🚪 Salir':
-      console.log(chalk.green('\nGracias por usar el conversor 🔄. ¡Hasta pronto!\n'));
+      console.log(chalk.yellowBright('\nGracias por usar el conversor 🔄. ¡Hasta pronto!\n'));
       process.exit();
   }
 
