@@ -35,3 +35,40 @@ async function mainMenu() {
     await continuar();
     await mainMenu();
 }
+
+async function convertUnits() {
+    const medidas = convert().measures();
+
+    const {tipe } = await inquirer.prompt([{
+        type: 'list',
+        name: 'tipe',
+        message: 'Selecciona el tipo de medida:',
+        choices: medidas
+    }]);
+    const unidades = convert(tipe).possibilities(tipo);
+
+    const respuestas = await inquirer.prompt([
+        {
+            type: 'list',
+            name: 'from',
+            message: '¿Qué tipo de medida quieres convertir?',
+            choices: unidades
+        },
+        {
+            type: 'list',
+            name: 'to',
+            message: '¿A qué tipo de medida quieres convertir?',
+            choices: unidades
+        },
+        {
+            type: 'input',
+            name: 'value',
+            message: 'Introduce el valor a convertir:',
+            validate: (input) => !isNaN(input) || 'Por favor, introduce un número válido.'
+        }
+    ]);
+
+    
+
+
+
